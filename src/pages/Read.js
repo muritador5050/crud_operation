@@ -8,10 +8,10 @@ const Read = () => {
   const { id } = router.query;
   useEffect(() => {
     axios
-      .get(`http://localhost:3004/users/${id}`)
-      .then((response) => setData(response.data))
+      .get("http://localhost:3004/users/" + id)
+      .then((res) => console.log(res.data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [data]);
   return (
     <div>
       <ul>

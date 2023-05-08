@@ -15,11 +15,13 @@ export default function Home() {
   }, []);
 
   const handleDelete = (id) => {
+    const deleteItem = data.filter((d, i) => d.id !== id);
+    setData(deleteItem);
     const confirm = window.confirm("Are you sure of this operation");
     if (confirm) {
       axios
         .delete("http://localhost:3004/users/" + id)
-        .then((res) => location.reload())
+        .then((res) => res)
         .catch((err) => console.log(err));
     }
   };
@@ -59,17 +61,17 @@ export default function Home() {
                 <td>{d.phone}</td>
                 <td className="td-btn">
                   <Link href={`/Update/${d.id}`}>
-                    <button className="btn-sub">edit</button>
+                    <button className="btn-sub">Edit</button>
                   </Link>
                   <Link href={`/Read/${d.id}`}>
-                    <button className="btn-sub">read</button>
+                    <button className="btn-sub">Read</button>
                   </Link>
 
                   <button
                     onClick={() => handleDelete(d.id)}
                     className="btn-sub"
                   >
-                    delete
+                    Delete
                   </button>
                 </td>
               </tr>
