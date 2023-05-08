@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "name": "alanperi",
+      "email": "alanperi22@gmail.com",
+      "phone": "+234564763836",
+      "id": 1
+    },
+    {
+      "name": "jack moris",
+      "email": "jackmoris@gmail.com",
+      "phone": "86957595858",
+      "id": 3
+    },
+    {
+      "name": "mandek",
+      "email": "mandek@yahoo.com",
+      "phone": "+24357364748",
+      "id": 4
+    },
+    {
+      "name": "loris more",
+      "email": "lorismore@yahoo.com",
+      "phone": "+35474685869",
+      "id": 5
+    }
+  ]
+}

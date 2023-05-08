@@ -1,11 +1,29 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Head from "next/head";
+import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Link from "next/link";
 
 export default function Home() {
+  const [data, setData] = useState([]);
+  const len = data.length;
+  useEffect(() => {
+    axios
+      .get("http://localhost:3004/users")
+      .then((response) => setData(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const handleDelete = (id) => {
+    const confirm = window.confirm("Are you sure of this operation");
+    if (confirm) {
+      axios
+        .delete("http://localhost:3004/users/" + id)
+        .then((res) => location.reload())
+        .catch((err) => console.log(err));
+    }
+  };
+
   return (
     <>
       <Head>
@@ -14,101 +32,51 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
+      <div>
+        <span>{len} Users Added</span>
+        <Link href="/Create">
+          <button className="add-btn">add +</button>
+        </Link>
+      </div>
+      <table className="users-data">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((d) => {
+            return (
+              <tr key={d.id}>
+                <td>{d.id}</td>
+                <td>{d.name}</td>
+                <td>{d.email}</td>
+                <td>{d.phone}</td>
+                <td className="td-btn">
+                  <Link href={`/Update/${d.id}`}>
+                    <button className="btn-sub">edit</button>
+                  </Link>
+                  <Link href={`/Read/${d.id}`}>
+                    <button className="btn-sub">read</button>
+                  </Link>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+                  <button
+                    onClick={() => handleDelete(d.id)}
+                    className="btn-sub"
+                  >
+                    delete
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </>
-  )
+  );
 }

@@ -1,0 +1,54 @@
+import React from "react";
+
+const Edit = () => {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    phone: ""
+  });
+
+  const router = useRouter();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:3004/users", values)
+      .then((response) => {
+        console.log(response.data);
+        router.push("/");
+      })
+      .catch((error) => console.log(error));
+  };
+
+  return (
+    <div className="create-user">
+      <form onSubmit={handleSubmit} className="user-form">
+        <input
+          name="name"
+          placeholder="Name..."
+          onChange={(e) => setValues({ ...values, name: e.target.value })}
+        />
+        <br />
+        <input
+          name="email"
+          placeholder="Email..."
+          onChange={(e) => setValues({ ...values, email: e.target.value })}
+        />
+        <br />
+        <input
+          name="phone"
+          placeholder="Phone..."
+          onChange={(e) => setValues({ ...values, phone: e.target.value })}
+        />
+        <br />
+        <div className="submit-data">
+          <button className="btn-sub">Submit</button>
+          <Link href="/">
+            <button className="btn-sub">Back</button>
+          </Link>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default Edit;
