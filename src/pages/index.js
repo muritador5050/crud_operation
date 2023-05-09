@@ -34,7 +34,7 @@ export default function Home() {
       </Head>
 
       <div>
-        <Link href="/Create">
+        <Link href="/create">
           <button className="add-btn">add +</button>
         </Link>
       </div>
@@ -56,10 +56,10 @@ export default function Home() {
               <td>{d.email}</td>
               <td>{d.phone}</td>
               <td className="td-btn">
-                <Link href={`/Update/${d.id}`}>
+                <Link href={`/update/${d.id}`}>
                   <button className="btn-sub">Edit</button>
                 </Link>
-                <Link href={`/Read/${d.id}`}>
+                <Link href={`/read/${d.id}`}>
                   <button className="btn-sub">Read</button>
                 </Link>
 

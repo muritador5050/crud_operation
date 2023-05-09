@@ -27,7 +27,7 @@ const Read = () => {
       </div>
 
       <div className="submit-data">
-        <Link href={"/Update/:id"}>
+        <Link href={"/update/:id"}>
           <button className="btn-sub">Edit</button>
         </Link>
         <Link href="/">
