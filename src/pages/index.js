@@ -74,10 +74,10 @@ export default function Home() {
               <td>{d.email}</td>
               <td>{d.phone}</td>
               <td className="td-btn">
-                <Link href={`/read/${d.id}`}>
+                <Link href={{ pathname: "/read", query: { id: d.id } }}>
                   <button className="btn-sub">Read</button>
                 </Link>
-                <Link href={`/update/${d.id}`}>
+                <Link href={{ pathname: "/update", query: { id: d.id } }}>
                   <button className="btn-sub">
                     <BiEditAlt />
                   </button>
