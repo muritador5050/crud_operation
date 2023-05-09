@@ -13,18 +13,27 @@ const Read = () => {
       .catch((error) => console.log(error));
   }, [data]);
   return (
-    <div>
-      <ul>
-        <li>Name: {data.name}</li>
-        <li>Email: {data.email}</li>
-        <li>Phone: {data.phone}</li>
-      </ul>
-      <Link href={`Update/${id}`}>
-        <button>Edit</button>
-      </Link>
-      <Link href={`/`}>
-        <button>Back</button>
-      </Link>
+    <div className="read-data">
+      <div className="read-details">
+        <p>
+          <strong>Name:</strong> {data.name}
+        </p>
+        <p>
+          <strong>Email:</strong> {data.email}
+        </p>
+        <p>
+          <strong>Phone:</strong> {data.phone}
+        </p>
+      </div>
+
+      <div className="submit-data">
+        <Link href={"/Update/:id"}>
+          <button className="btn-sub">Edit</button>
+        </Link>
+        <Link href="/">
+          <button className="btn-sub">Back</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -8,6 +9,7 @@ const Update = () => {
     email: "",
     phone: ""
   });
+
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {
@@ -29,8 +31,8 @@ const Update = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleUpdate}>
+    <div className="create-user">
+      <form onSubmit={handleUpdate} className="user-form">
         <input
           name="name"
           placeholder="Name..."
@@ -52,10 +54,13 @@ const Update = () => {
           onChange={(e) => setValues({ ...values, phone: e.target.value })}
         />
         <br />
-        <button>Submit</button>
-        <Link href="/">
-          <button>Back</button>
-        </Link>
+
+        <div className="submit-data">
+          <button className="btn-sub">Update</button>
+          <Link href="/">
+            <button className="btn-sub">Back</button>
+          </Link>
+        </div>
       </form>
     </div>
   );

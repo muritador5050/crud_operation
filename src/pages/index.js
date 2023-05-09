@@ -1,12 +1,10 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 
 export default function Home() {
   const [data, setData] = useState([]);
-  const len = data.length;
   useEffect(() => {
     axios
       .get("http://localhost:3004/users")
@@ -15,8 +13,6 @@ export default function Home() {
   }, []);
 
   const handleDelete = (id) => {
-    const deleteItem = data.filter((d, i) => d.id !== id);
-    setData(deleteItem);
     const confirm = window.confirm("Are you sure of this operation");
     if (confirm) {
       axios
@@ -24,6 +20,8 @@ export default function Home() {
         .then((res) => res)
         .catch((err) => console.log(err));
     }
+    const deleteItem = data.filter((d, i) => d.id !== id);
+    setData(deleteItem);
   };
 
   return (
@@ -36,7 +34,6 @@ export default function Home() {
       </Head>
 
       <div>
-        <span>{len} Users Added</span>
         <Link href="/Create">
           <button className="add-btn">add +</button>
         </Link>
@@ -52,31 +49,26 @@ export default function Home() {
           </tr>
         </thead>
         <tbody>
-          {data.map((d) => {
-            return (
-              <tr key={d.id}>
-                <td>{d.id}</td>
-                <td>{d.name}</td>
-                <td>{d.email}</td>
-                <td>{d.phone}</td>
-                <td className="td-btn">
-                  <Link href={`/Update/${d.id}`}>
-                    <button className="btn-sub">Edit</button>
-                  </Link>
-                  <Link href={`/Read/${d.id}`}>
-                    <button className="btn-sub">Read</button>
-                  </Link>
+          {data.map((d) => (
+            <tr key={d.id}>
+              <td>{d.id}</td>
+              <td>{d.name}</td>
+              <td>{d.email}</td>
+              <td>{d.phone}</td>
+              <td className="td-btn">
+                <Link href={`/Update/${d.id}`}>
+                  <button className="btn-sub">Edit</button>
+                </Link>
+                <Link href={`/Read/${d.id}`}>
+                  <button className="btn-sub">Read</button>
+                </Link>
 
-                  <button
-                    onClick={() => handleDelete(d.id)}
-                    className="btn-sub"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
+                <button onClick={() => handleDelete(d.id)} className="btn-sub">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>
