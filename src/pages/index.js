@@ -4,6 +4,9 @@ import axios from "axios";
 import Link from "next/link";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { BiEditAlt } from "react-icons/bi";
+import { BsPersonAdd, BsFillTelephoneInboundFill } from "react-icons/bs";
+import { AiOutlineMail } from "react-icons/ai";
+import { SiGithubactions, SiNamecheap } from "react-icons/si";
 export default function Home() {
   const [data, setData] = useState([]);
 
@@ -39,17 +42,28 @@ export default function Home() {
 
       <div>
         <Link href="/create">
-          <button className="add-btn">add +</button>
+          <button className="add-btn">
+            <BsPersonAdd />
+          </button>
         </Link>
       </div>
       <table className="users-data">
         <thead>
           <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone No</th>
-            <th>Actions</th>
+            <th>
+              Name <SiNamecheap className="datas-icon" />
+            </th>
+            <th>
+              Email
+              <AiOutlineMail className="datas-icon" />
+            </th>
+            <th>
+              Phone No <BsFillTelephoneInboundFill className="datas-icon" />
+            </th>
+            <th>
+              Actions <SiGithubactions className="datas-icon" />
+            </th>
           </tr>
         </thead>
         <tbody>

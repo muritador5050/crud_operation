@@ -271,7 +271,14 @@ input {
   right: 10px;
   bottom: 0;
 }
+.datas-icon {
+ margin-left: 10px;
+ font-size: 20px;
+ text-align: center;
+}
 
 ul li {
   list-style: none;
 }
+/* map */
+#map { height: 180px; }
