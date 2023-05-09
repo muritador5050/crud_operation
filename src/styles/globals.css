@@ -120,6 +120,7 @@ body {
   padding-bottom: 12px;
   text-align: left;
   background-color: #04aa6d;
+  font-family: var(--font-mono);
   color: white;
 }
 button {

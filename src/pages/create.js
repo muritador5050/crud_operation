@@ -6,10 +6,12 @@ const Create = () => {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
+    image: ""
   });
 
   const router = useRouter();
+
   //Add or Create a Data
   const handleSubmit = (e) => {
     e.preventDefault();

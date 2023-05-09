@@ -27,6 +27,9 @@ export default function Home() {
         .then((res) => res)
         .catch((err) => console.log(err));
     }
+    if (!confirm) {
+      return data;
+    }
     const deleteItem = data.filter((d, i) => d.id !== id);
     setData(deleteItem);
   };
@@ -82,6 +85,12 @@ export default function Home() {
           ))}
         </tbody>
       </table>
+
+      {data.length === 0 && (
+        <h2 style={{ textAlign: "center", margin: "2em" }}>
+          No Data Available
+        </h2>
+      )}
     </>
   );
 }
