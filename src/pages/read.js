@@ -6,7 +6,7 @@ const Read = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
   const { id } = router.query;
-   console.log(id);
+  console.log(id);
   //Fetch Data From Specific Id
   useEffect(() => {
     axios
@@ -30,7 +30,7 @@ const Read = () => {
       </div>
 
       <div className="submit-data">
-        <Link href={"/update"}>
+        <Link href={{ pathname: "/update", query: { id: id } }}>
           <button className="btn-sub">Edit</button>
         </Link>
         <Link href="/">
