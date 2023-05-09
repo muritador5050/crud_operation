@@ -27,7 +27,7 @@ const Update = () => {
     axios
       .put(`http://localhost:3004/users/${id}`, values)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         router.push("/");
       })
       .catch((error) => console.log(error));

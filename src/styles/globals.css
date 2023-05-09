@@ -159,7 +159,7 @@ button {
   flex-direction: column;
   gap: 10px;
 }
-.submit-data{
+.submit-data {
   display: flex;
   gap: 5px;
 }
@@ -172,13 +172,20 @@ input {
 .read-data {
   display: flex;
   flex-direction: column;
- align-items: center;
- margin-top: 5em;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 5em;
+  width: 500px;
+  height: 300px;
+  background: #ddd;
 }
 .read-details {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 10px;
 }
 
@@ -246,7 +253,7 @@ input {
   margin: auto;
   margin-top: 5em;
 }
-.form-input  {
+.form-input {
   width: 300px;
   border-radius: 10px;
   border: none;
@@ -272,13 +279,15 @@ input {
   bottom: 0;
 }
 .datas-icon {
- margin-left: 10px;
- font-size: 20px;
- text-align: center;
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
 }
 
 ul li {
   list-style: none;
 }
 /* map */
-#map { height: 180px; }
+#map {
+  height: 180px;
+}
