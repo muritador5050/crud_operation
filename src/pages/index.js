@@ -2,7 +2,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
-
+import { RiDeleteBinLine } from "react-icons/ri";
+import { BiEditAlt } from "react-icons/bi";
 export default function Home() {
   const [data, setData] = useState([]);
 
@@ -59,15 +60,17 @@ export default function Home() {
               <td>{d.email}</td>
               <td>{d.phone}</td>
               <td className="td-btn">
-                <Link href={`/update/${d.id}`}>
-                  <button className="btn-sub">Edit</button>
-                </Link>
                 <Link href={`/read/${d.id}`}>
                   <button className="btn-sub">Read</button>
                 </Link>
+                <Link href={`/update/${d.id}`}>
+                  <button className="btn-sub">
+                    <BiEditAlt />
+                  </button>
+                </Link>
 
                 <button onClick={() => handleDelete(d.id)} className="btn-sub">
-                  Delete
+                  <RiDeleteBinLine />
                 </button>
               </td>
             </tr>

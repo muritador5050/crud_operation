@@ -6,12 +6,12 @@ const Read = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
   const { id } = router.query;
-
+   console.log(id);
   //Fetch Data From Specific Id
   useEffect(() => {
     axios
-      .get("http://localhost:3004/users/" + id)
-      .then((res) => console.log(res.data))
+      .get(`http://localhost:3004/users/${id}`)
+      .then((res) => setData(res.data))
       .catch((error) => console.log(error));
   }, [data]);
 
@@ -30,7 +30,7 @@ const Read = () => {
       </div>
 
       <div className="submit-data">
-        <Link href={"/update/:id"}>
+        <Link href={"/update"}>
           <button className="btn-sub">Edit</button>
         </Link>
         <Link href="/">
