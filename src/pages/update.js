@@ -12,6 +12,8 @@ const Update = () => {
 
   const router = useRouter();
   const { id } = router.query;
+
+  //Fetch Data From Specific Id
   useEffect(() => {
     axios
       .get(`http://localhost:3004/users/${id}`)
@@ -19,6 +21,7 @@ const Update = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  //Update The Fetched Data
   const handleUpdate = (e) => {
     e.preventDefault();
     axios

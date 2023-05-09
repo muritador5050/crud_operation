@@ -5,6 +5,8 @@ import Link from "next/link";
 
 export default function Home() {
   const [data, setData] = useState([]);
+
+  //Fetch Data From db.json File
   useEffect(() => {
     axios
       .get("http://localhost:3004/users")
@@ -12,6 +14,7 @@ export default function Home() {
       .catch((error) => console.log(error));
   }, []);
 
+  //Delete Data
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure of this operation");
     if (confirm) {

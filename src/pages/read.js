@@ -6,12 +6,15 @@ const Read = () => {
   const [data, setData] = useState([]);
   const router = useRouter();
   const { id } = router.query;
+
+  //Fetch Data From Specific Id
   useEffect(() => {
     axios
       .get("http://localhost:3004/users/" + id)
       .then((res) => console.log(res.data))
       .catch((error) => console.log(error));
   }, [data]);
+
   return (
     <div className="read-data">
       <div className="read-details">
