@@ -46,7 +46,8 @@ export default function Home() {
       <div>
         <Link href="/create">
           <button className="add-btn">
-            <BsPersonAdd />
+            <BsPersonAdd /> <br />
+            <small> Add user</small>
           </button>
         </Link>
       </div>
@@ -87,9 +88,9 @@ export default function Home() {
       </table>
 
       {data.length === 0 && (
-        <h2 style={{ textAlign: "center", margin: "2em" }}>
+        <h1 style={{ textAlign: "center", margin: "2em", color: "green" }}>
           No Data Available
-        </h2>
+        </h1>
       )}
     </>
   );

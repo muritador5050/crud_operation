@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 function getDayName(date = new Date(), locale = "en-US") {
   return date.toLocaleDateString(locale, { weekday: "long" });
@@ -17,8 +18,8 @@ export default function fakeApi() {
       url: `http://api.weatherapi.com/v1/current.json?q=${region}&aqi=no`,
       headers: {
         key: "b4d344549f2140059e4125539230405",
-        "Access-Control-Allow-Origin": "*"
-      }
+        "Access-Control-Allow-Origin": "*",
+      },
     };
     try {
       const response = await axios.request(londonOptions);
@@ -37,8 +38,8 @@ export default function fakeApi() {
       url: `http://api.weatherapi.com/v1/current.json?q=${region}&aqi=no`,
       headers: {
         key: "b4d344549f2140059e4125539230405",
-        "Access-Control-Allow-Origin": "*"
-      }
+        "Access-Control-Allow-Origin": "*",
+      },
     };
     const response = axios
       .request(londonOptions)
