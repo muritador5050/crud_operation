@@ -1,11 +1,46 @@
 {
   "users": [
     {
-      "name": "suieui",
-      "email": "fhgjjjjjh@gdgfhfh.fhf",
-      "phone": "+234564763836",
-      "image": "",
-      "id": 1
+      "id": "c721",
+      "name": "olawale",
+      "email": "olawale@gmail.com",
+      "phone": "08148985591",
+      "image": ""
+    },
+    {
+      "id": "1d30",
+      "name": "julia",
+      "email": "julia@gmail.com",
+      "phone": "0904686373673",
+      "image": ""
+    },
+    {
+      "id": "1c3a",
+      "name": "pepe",
+      "email": "pep@gmail.com",
+      "phone": "23467598934040",
+      "image": ""
+    },
+    {
+      "id": "a9c2",
+      "name": "olawale",
+      "email": "pep@gmail.com",
+      "phone": "23467598934040",
+      "image": ""
+    },
+    {
+      "id": "aebf",
+      "name": "olawale",
+      "email": "olawale@gmail.com",
+      "phone": "08148985591",
+      "image": ""
+    },
+    {
+      "id": "a232",
+      "name": "kamali",
+      "email": "kamal@gmail.com",
+      "phone": "08148985593",
+      "image": ""
     }
   ]
 }

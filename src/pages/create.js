@@ -7,7 +7,7 @@ const Create = () => {
     name: "",
     email: "",
     phone: "",
-    image: ""
+    image: "",
   });
 
   const router = useRouter();
@@ -46,7 +46,9 @@ const Create = () => {
         />
         <br />
         <div className="submit-data">
-          <button className="btn-sub">Submit</button>
+          <button className="btn-sub" type="submit">
+            Submit
+          </button>
           <Link href="/">
             <button className="btn-sub">Back</button>
           </Link>

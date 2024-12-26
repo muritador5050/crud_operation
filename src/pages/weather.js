@@ -7,7 +7,7 @@ function getDayName(date = new Date(), locale = "en-US") {
 export default function fakeApi() {
   const [londonWeather, setLondonWeather] = useState(null);
   const [isloading, setIsLoading] = useState(false);
-  const [region, setRegion] = useState("London");
+  const [region, setRegion] = useState("Mecca");
   const [changeLocation, setChangeLocation] = useState(false);
 
   async function getLondonWeather() {
