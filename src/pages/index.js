@@ -88,7 +88,7 @@ export default function Home() {
       </table>
 
       {data.length === 0 && (
-        <h1 style={{ textAlign: "center", margin: "2em", color: "green" }}>
+        <h1 style={{ textAlign: "center", margin: "2em", color: "#edf4f2" }}>
           No Data Available
         </h1>
       )}
