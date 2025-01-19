@@ -84,17 +84,6 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-/* 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
- */
 
 .users-data {
   margin: auto;
@@ -136,7 +125,6 @@ button {
   border-radius: 10px;
   border: none;
 }
-
 
 .btn-sub {
   background: #04aa6d;
@@ -191,10 +179,6 @@ input {
   margin-bottom: 10px;
 }
 
-.weather-template {
-  text-align: center;
-  margin: 2em;
-}
 .form-container {
   display: flex;
   align-items: center;
@@ -202,84 +186,6 @@ input {
   margin: 0 200px;
 }
 
-.weather-container {
-  display: flex;
-  justify-content: center;
-}
-
-.weather-1 {
-  display: flex;
-  background: black;
-  color: white;
-  border-radius: 15px;
-  width: 600px;
-  height: 400px;
-}
-
-.weather-blue-template {
-  display: flex;
-  flex-direction: column;
-  gap: 6em;
-  background: linear-gradient(to right, blue, lightblue);
-  width: 45%;
-  border-radius: 15px;
-  padding: 20px;
-}
-.weather-black-template {
-  width: 55%;
-}
-.weather-black-template ul {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
-}
-.location ul li,
-.condition ul li {
-  margin-bottom: 10px;
-}
-.list-condition {
-  display: flex;
-  justify-content: space-between;
-}
-.change-location {
-  background: linear-gradient(to right, blue, lightblue);
-  color: white;
-  width: 300px;
-  cursor: pointer;
-  padding: 10px 25px;
-  border-radius: 10px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  margin-top: 5em;
-}
-.form-input {
-  width: 300px;
-  border-radius: 10px;
-  border: none;
-  margin: auto;
-  position: relative;
-}
-.text-input {
-  width: 300px;
-  border-radius: 10px;
-  border: none;
-  height: 50px;
-}
-
-.go-button {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: linear-gradient(to right, blue, lightblue);
-  color: white;
-  cursor: pointer;
-  right: 10px;
-  bottom: 0;
-}
 .datas-icon {
   margin-left: 10px;
   font-size: 20px;
