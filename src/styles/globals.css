@@ -25,7 +25,6 @@ body {
 }
 .users-data td,
 .users-data th {
-  /* border: 1px solid #ddd; */
   padding: 8px;
 }
 .users-data tr:nth-child(even) {
