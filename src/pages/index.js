@@ -12,20 +12,24 @@ export default function Home() {
 
   //Fetch Data From db.json File
   useEffect(() => {
-    axios
-      .get("http://localhost:3004/users")
-      .then((response) => setData(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+    try {
+      fetch("http://localhost:3004/users").then((res) =>
+        res.json().then((data) => setData(data))
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }, [data]);
 
   //Delete Data
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure of this operation");
     if (confirm) {
-      axios
-        .delete("http://localhost:3004/users/" + id)
-        .then((res) => res)
-        .catch((err) => console.log(err));
+      fetch("http://localhost:3004/users/" + id, {
+        method: "DELETE",
+      })
+        .then((res) => res.text())
+        .then((res) => console.log(res));
     }
     if (!confirm) {
       return data;

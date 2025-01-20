@@ -8,10 +8,13 @@ const Read = () => {
   const { id } = router.query;
   //Fetch Data From Specific Id
   useEffect(() => {
-    axios
-      .get(`http://localhost:3004/users/${id}`)
-      .then((res) => setData(res.data))
-      .catch((error) => console.log(error));
+    try {
+      fetch(`http://localhost:3004/users/${id}`).then((res) =>
+        res.json().then((data) => setData(data))
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }, [data]);
 
   return (

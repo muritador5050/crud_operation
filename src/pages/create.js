@@ -15,13 +15,27 @@ const Create = () => {
   //Add or Create a Data
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3004/users", values)
-      .then((response) => {
-        setValues(response.data);
-        router.push("/");
-      })
-      .catch((error) => console.log(error));
+    // axios
+    //   .post("http://localhost:3004/users", values)
+    //   .then((response) => {
+    //     setValues(response.data);
+    //     router.push("/");
+    //   })
+    //   .catch((error) => console.log(error));
+    fetch("http://localhost:3004/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+      }),
+    }).then((response) => {
+      setValues(response.data);
+      router.push("/");
+    });
   };
 
   return (

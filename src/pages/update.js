@@ -7,7 +7,7 @@ const Update = () => {
   const [values, setValues] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
   });
 
   const router = useRouter();
@@ -15,22 +15,33 @@ const Update = () => {
 
   //Fetch Data From Specific Id
   useEffect(() => {
-    axios
-      .get(`http://localhost:3004/users/${id}`)
-      .then((response) => setValues(response.data))
-      .catch((error) => console.log(error));
+    try {
+      fetch(`http://localhost:3004/users/${id}`).then((res) =>
+        res.json().then((data) => setValues(data))
+      );
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   //Update The Fetched Data
   const handleUpdate = (e) => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:3004/users/${id}`, values)
-      .then((response) => {
-        // console.log(response.data);
+
+    fetch(`http://localhost:3004/users/${id}`, {
+      method: "PUT",
+      "Content-Type": "application/json",
+      body: JSON.stringify({
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+      }),
+    })
+      .then((res) => {
+        res.json();
         router.push("/");
       })
-      .catch((error) => console.log(error));
+      .catch((err) => console.log(err));
   };
 
   return (
