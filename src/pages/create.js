@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import axios from "axios";
 import { useRouter } from "next/router";
 const Create = () => {
   const [values, setValues] = useState({
